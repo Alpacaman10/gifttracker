@@ -8,6 +8,10 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :gifts,
+             resource: ItemResource,
+             foreign_key: :created_by
+
   # Indirect associations
 
 end
