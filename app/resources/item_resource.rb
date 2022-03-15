@@ -14,6 +14,9 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :purchased_by,
+             resource: UserResource
+
   belongs_to :creator,
              resource: UserResource,
              foreign_key: :created_by
