@@ -1,6 +1,9 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :relationships,
+             :dependent => :destroy
+
   has_many   :gifts,
              :class_name => "Item",
              :foreign_key => "created_by",
