@@ -8,6 +8,7 @@ class CirclesController < ApplicationController
 
   # GET /circles/1
   def show
+    @relationship = Relationship.new
   end
 
   # GET /circles/new
