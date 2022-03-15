@@ -1,6 +1,9 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :circle,
+             :class_name => "Relationship"
+
   belongs_to :purchased_by,
              :class_name => "User"
 

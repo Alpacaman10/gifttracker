@@ -4,6 +4,8 @@ RSpec.describe Item, type: :model do
   
     describe "Direct Associations" do
 
+    it { should belong_to(:circle) }
+
     it { should belong_to(:purchased_by) }
 
     it { should belong_to(:creator) }

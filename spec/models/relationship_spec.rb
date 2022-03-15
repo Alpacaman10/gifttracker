@@ -4,6 +4,8 @@ RSpec.describe Relationship, type: :model do
   
     describe "Direct Associations" do
 
+    it { should have_many(:items) }
+
     it { should belong_to(:circle) }
 
     it { should belong_to(:user) }
