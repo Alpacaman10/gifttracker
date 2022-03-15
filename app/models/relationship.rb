@@ -1,6 +1,8 @@
 class Relationship < ApplicationRecord
   # Direct associations
 
+  belongs_to :circle
+
   belongs_to :user
 
   # Indirect associations
