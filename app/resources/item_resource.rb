@@ -14,6 +14,9 @@ class ItemResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :circle,
+             resource: RelationshipResource
+
   belongs_to :purchased_by,
              resource: UserResource
 

@@ -7,6 +7,9 @@ class RelationshipResource < ApplicationResource
 
   # Direct associations
 
+  has_many   :items,
+             foreign_key: :circle_id
+
   belongs_to :circle
 
   belongs_to :user
