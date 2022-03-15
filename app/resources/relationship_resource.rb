@@ -7,6 +7,8 @@ class RelationshipResource < ApplicationResource
 
   # Direct associations
 
+  belongs_to :circle
+
   belongs_to :user
 
   # Indirect associations
