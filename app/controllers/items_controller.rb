@@ -5,7 +5,8 @@ class ItemsController < ApplicationController
 
   # GET /items
   def index
-    @items = current_user.gifts.page(params[:page]).per(10)
+    @q = current_user.gifts.ransack(params[:q])
+    @items = @q.result(:distinct => true).includes(:creator, :purchased_by, :circle).page(params[:page]).per(10)
   end
 
   # GET /items/1
