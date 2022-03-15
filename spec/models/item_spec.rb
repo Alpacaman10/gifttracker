@@ -16,5 +16,7 @@ RSpec.describe Item, type: :model do
     it {
       should validate_numericality_of(:priority).is_less_than(5).is_greater_than_or_equal_to(1)
     }
+
+    it { should validate_uniqueness_of(:purchased_by_id).allow_nil }
   end
 end

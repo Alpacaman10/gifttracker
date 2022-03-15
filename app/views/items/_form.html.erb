@@ -148,7 +148,7 @@
     <% end %>
 
     <%= f.label :circle_id %>
-    <%= f.collection_select :circle_id, Relationship.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :circle_id, Circle.all, :id, :to_s, {}, class: "form-control" %>
     <% if circle_was_invalid %>
       <% item.errors.full_messages_for(:circle).each do |message| %>
         <div class="invalid-feedback d-flex">
@@ -173,6 +173,28 @@
     <%= f.number_field :priority, class: priority_class, placeholder: "Enter priority" %>
     <% if priority_was_invalid %>
       <% item.errors.full_messages_for(:priority).each do |message| %>
+        <div class="invalid-feedback d-flex">
+          <%= message %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="form-group">
+    <% name_class = "form-control" %>
+    <% name_was_invalid = item.errors.include?(:name) %>
+
+    <% if was_validated %>
+      <% if name_was_invalid %>
+        <% name_class << " is-invalid" %>
+      <% else %>
+        <% name_class << " is-valid" %>
+      <% end %>
+    <% end %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: name_class, placeholder: "Enter name" %>
+    <% if name_was_invalid %>
+      <% item.errors.full_messages_for(:name).each do |message| %>
         <div class="invalid-feedback d-flex">
           <%= message %>
         </div>

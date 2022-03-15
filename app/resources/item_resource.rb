@@ -11,11 +11,11 @@ class ItemResource < ApplicationResource
   attribute :purchased_by_id, :integer
   attribute :circle_id, :integer
   attribute :priority, :integer
+  attribute :name, :string
 
   # Direct associations
 
-  belongs_to :circle,
-             resource: RelationshipResource
+  belongs_to :circle
 
   belongs_to :purchased_by,
              resource: UserResource

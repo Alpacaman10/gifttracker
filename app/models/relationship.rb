@@ -1,10 +1,6 @@
 class Relationship < ApplicationRecord
   # Direct associations
 
-  has_many   :items,
-             foreign_key: "circle_id",
-             dependent: :destroy
-
   belongs_to :circle
 
   belongs_to :user
