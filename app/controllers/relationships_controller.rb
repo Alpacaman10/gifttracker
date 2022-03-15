@@ -1,27 +1,22 @@
 class RelationshipsController < ApplicationController
   before_action :set_relationship, only: %i[show edit update destroy]
 
-  # GET /relationships
   def index
     @q = Relationship.ransack(params[:q])
     @relationships = @q.result(distinct: true).includes(:user, :circle,
                                                         :items).page(params[:page]).per(10)
   end
 
-  # GET /relationships/1
   def show
     @item = Item.new
   end
 
-  # GET /relationships/new
   def new
     @relationship = Relationship.new
   end
 
-  # GET /relationships/1/edit
   def edit; end
 
-  # POST /relationships
   def create
     @relationship = Relationship.new(relationship_params)
 
@@ -37,7 +32,6 @@ class RelationshipsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /relationships/1
   def update
     if @relationship.update(relationship_params)
       redirect_to @relationship,
@@ -47,7 +41,6 @@ class RelationshipsController < ApplicationController
     end
   end
 
-  # DELETE /relationships/1
   def destroy
     @relationship.destroy
     message = "Relationship was successfully deleted."
@@ -60,12 +53,10 @@ class RelationshipsController < ApplicationController
 
   private
 
-  # Use callbacks to share common setup or constraints between actions.
   def set_relationship
     @relationship = Relationship.find(params[:id])
   end
 
-  # Only allow a trusted parameter "white list" through.
   def relationship_params
     params.require(:relationship).permit(:user_id, :circle_id)
   end
