@@ -1,5 +1,7 @@
 ActiveAdmin.register Item do
 
+ permit_params :created_by, :image, :url, :description, :price, :received, :purchased_by_id, :circle_id, :priority
+
   # See permitted parameters documentation:
   # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
   #
