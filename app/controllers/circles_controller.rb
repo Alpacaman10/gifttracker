@@ -3,7 +3,7 @@ class CirclesController < ApplicationController
 
   # GET /circles
   def index
-    @circles = Circle.all
+    @circles = Circle.page(params[:page]).per(10)
   end
 
   # GET /circles/1
