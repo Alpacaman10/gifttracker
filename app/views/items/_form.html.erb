@@ -197,7 +197,7 @@
 
     <%= f.label :circle_id %>
     <!-- Input for circle_id start -->
-    <%= f.number_field :circle_id, class: circle_class, placeholder: "Enter circle" %>
+    <%= f.collection_select :circle_id, Relationship.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for circle_id end -->
     <% if circle_was_invalid %>
       <% item.errors.full_messages_for(:circle).each do |message| %>
