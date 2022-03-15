@@ -67,6 +67,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:created_by, :image, :url, :description,
-                                 :price, :received, :purchased_by_id, :circle_id, :priority)
+                                 :price, :received, :purchased_by_id, :circle_id, :priority, :name)
   end
 end

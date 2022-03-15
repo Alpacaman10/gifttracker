@@ -3,8 +3,7 @@ class Item < ApplicationRecord
 
   # Direct associations
 
-  belongs_to :circle,
-             class_name: "Relationship"
+  belongs_to :circle
 
   belongs_to :purchased_by,
              class_name: "User"
@@ -20,6 +19,8 @@ class Item < ApplicationRecord
   validates :priority,
             numericality: { less_than_or_equal_to: 5,
                             greater_than_or_equal_to: 1 }
+
+  validates :purchased_by_id, uniqueness: { allow_blank: true }
 
   # Scopes
 

@@ -3,13 +3,11 @@ class RelationshipsController < ApplicationController
 
   def index
     @q = Relationship.ransack(params[:q])
-    @relationships = @q.result(distinct: true).includes(:user, :circle,
-                                                        :items).page(params[:page]).per(10)
+    @relationships = @q.result(distinct: true).includes(:user,
+                                                        :circle).page(params[:page]).per(10)
   end
 
-  def show
-    @item = Item.new
-  end
+  def show; end
 
   def new
     @relationship = Relationship.new

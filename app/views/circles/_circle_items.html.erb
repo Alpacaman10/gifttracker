@@ -2,13 +2,13 @@
   <div class="card-header d-flex align-items-center justify-content-between">
     Items
 
-    <a data-toggle="collapse" href="#relationship_items_new_form">
+    <a data-toggle="collapse" href="#circle_items_new_form">
       Add item
     </a>
   </div>
 
   <ul class="list-group list-group-flush">
-    <% @relationship.items.each do |item| %>
+    <% @circle.items.each do |item| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
         <%= link_to item, item %>
 
@@ -22,8 +22,8 @@
     <% end %>
 
     <div class="card-footer">
-      <div class="collapse" id="relationship_items_new_form">
-        <%= render partial: "relationships/relationship_items_new_form" %>
+      <div class="collapse" id="circle_items_new_form">
+        <%= render partial: "circles/circle_items_new_form" %>
       </div>
     </div>
 

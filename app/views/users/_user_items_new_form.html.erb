@@ -39,13 +39,19 @@
   <div class="form-group">
     <%= f.label :circle_id %>
 
-    <%= f.collection_select :circle_id, Relationship.all, :id, :to_s, {}, class: "form-control" %>
+    <%= f.collection_select :circle_id, Circle.all, :id, :to_s, {}, class: "form-control" %>
   </div>
 
   <div class="form-group">
     <%= f.label :priority %>
 
     <%= f.text_field :priority, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :name %>
+
+    <%= f.text_field :name, class: "form-control" %>
   </div>
 
   <%= f.submit "Create item", class: "btn btn-block btn-outline-secondary" %>

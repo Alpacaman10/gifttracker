@@ -6,7 +6,9 @@ class CircleResource < ApplicationResource
 
   # Direct associations
 
-  has_many :relationships
+  has_many   :items
+
+  has_many   :relationships
 
   # Indirect associations
 

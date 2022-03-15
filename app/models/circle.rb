@@ -1,6 +1,9 @@
 class Circle < ApplicationRecord
   # Direct associations
 
+  has_many   :items,
+             dependent: :destroy
+
   has_many   :relationships,
              dependent: :destroy
 

@@ -10,6 +10,7 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.integer :purchased_by_id
       t.integer :circle_id
       t.integer :priority
+      t.string :name
 
       t.timestamps
     end
