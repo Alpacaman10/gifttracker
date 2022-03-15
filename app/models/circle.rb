@@ -2,13 +2,13 @@ class Circle < ApplicationRecord
   # Direct associations
 
   has_many   :relationships,
-             :dependent => :destroy
+             dependent: :destroy
 
   # Indirect associations
 
   has_many   :users,
-             :through => :relationships,
-             :source => :user
+             through: :relationships,
+             source: :user
 
   # Validations
 
@@ -17,5 +17,4 @@ class Circle < ApplicationRecord
   def to_s
     name
   end
-
 end

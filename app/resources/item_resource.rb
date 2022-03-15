@@ -25,5 +25,4 @@ class ItemResource < ApplicationResource
              foreign_key: :created_by
 
   # Indirect associations
-
 end

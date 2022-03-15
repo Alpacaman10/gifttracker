@@ -1,10 +1,11 @@
 class RelationshipsController < ApplicationController
-  before_action :set_relationship, only: [:show, :edit, :update, :destroy]
+  before_action :set_relationship, only: %i[show edit update destroy]
 
   # GET /relationships
   def index
     @q = Relationship.ransack(params[:q])
-    @relationships = @q.result(:distinct => true).includes(:user, :circle, :items).page(params[:page]).per(10)
+    @relationships = @q.result(distinct: true).includes(:user, :circle,
+                                                        :items).page(params[:page]).per(10)
   end
 
   # GET /relationships/1
@@ -18,17 +19,16 @@ class RelationshipsController < ApplicationController
   end
 
   # GET /relationships/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /relationships
   def create
     @relationship = Relationship.new(relationship_params)
 
     if @relationship.save
-      message = 'Relationship was successfully created.'
-      if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-        redirect_back fallback_location: request.referrer, notice: message
+      message = "Relationship was successfully created."
+      if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+        redirect_back fallback_location: request.referer, notice: message
       else
         redirect_to @relationship, notice: message
       end
@@ -40,7 +40,8 @@ class RelationshipsController < ApplicationController
   # PATCH/PUT /relationships/1
   def update
     if @relationship.update(relationship_params)
-      redirect_to @relationship, notice: 'Relationship was successfully updated.'
+      redirect_to @relationship,
+                  notice: "Relationship was successfully updated."
     else
       render :edit
     end
@@ -50,22 +51,22 @@ class RelationshipsController < ApplicationController
   def destroy
     @relationship.destroy
     message = "Relationship was successfully deleted."
-    if Rails.application.routes.recognize_path(request.referrer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
-      redirect_back fallback_location: request.referrer, notice: message
+    if Rails.application.routes.recognize_path(request.referer)[:controller] != Rails.application.routes.recognize_path(request.path)[:controller]
+      redirect_back fallback_location: request.referer, notice: message
     else
       redirect_to relationships_url, notice: message
     end
   end
 
-
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_relationship
-      @relationship = Relationship.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def relationship_params
-      params.require(:relationship).permit(:user_id, :circle_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_relationship
+    @relationship = Relationship.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def relationship_params
+    params.require(:relationship).permit(:user_id, :circle_id)
+  end
 end
