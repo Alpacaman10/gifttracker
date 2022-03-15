@@ -8,7 +8,6 @@ class ItemResource < ApplicationResource
   attribute :description, :string
   attribute :price, :float
   attribute :received, :boolean
-  attribute :purchased_by_id, :integer
   attribute :circle_id, :integer
   attribute :priority, :integer
   attribute :name, :string
@@ -16,9 +15,6 @@ class ItemResource < ApplicationResource
   # Direct associations
 
   belongs_to :circle
-
-  belongs_to :purchased_by,
-             resource: UserResource
 
   belongs_to :creator,
              resource: UserResource,
