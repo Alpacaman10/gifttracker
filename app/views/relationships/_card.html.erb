@@ -6,22 +6,18 @@
   <div class="card-body">
     <dl class="mb-1">
       <dt>User</dt>
-      <!-- Display user_id start -->
       <dd>
         <% if @relationship.user.present? %>
           <%= link_to relationship.user, relationship.user %>
         <% end %>
       </dd>
-      <!-- Display user_id end -->
 
       <dt>Circle</dt>
-      <!-- Display circle_id start -->
       <dd>
         <% if @relationship.circle.present? %>
           <%= link_to relationship.circle, relationship.circle %>
         <% end %>
       </dd>
-      <!-- Display circle_id end -->
 
     </dl>
 
@@ -30,21 +26,17 @@
         <%= link_to_show_or_back relationship, '<i class="fas fa-search-plus"></i>'.html_safe, '<i class="fas fa-chevron-left"></i>'.html_safe, class: "btn btn-block btn-outline-secondary" %>
       </div>
 
-      <!-- Edit link relationship start -->
       <div class="col">
         <%= link_to edit_relationship_url(relationship), class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-edit"></i>
         <% end %>
       </div>
-      <!-- Edit link relationship end -->
 
-      <!-- Delete link relationship start -->
       <div class="col">
         <%= link_to relationship, method: :delete, data: { confirm: "Do you really want to delete this relationship?" }, class: "btn btn-block btn-outline-secondary" do %>
           <i class="fas fa-trash-alt"></i>
         <% end %>
       </div>
-      <!-- Delete link relationship end -->
     </div>
   </div>
 

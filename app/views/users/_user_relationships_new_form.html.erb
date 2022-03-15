@@ -1,22 +1,12 @@
-<!-- Form relationship start -->
 <%= form_with(model: @relationship, local: true) do |f| %>
-<!-- Form relationship end -->
 
-  <!-- Label and input for user_id start -->
-  <!-- Input for user_id start -->
   <%= f.hidden_field :user_id, value: @user.id %>
-  <!-- Input for user_id end -->
-  <!-- Label and input for user_id end -->
 
-  <!-- Label and input for circle_id start -->
   <div class="form-group">
     <%= f.label :circle_id %>
 
-    <!-- Input for circle_id start -->
     <%= f.collection_select :circle_id, Circle.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for circle_id end -->
   </div>
-  <!-- Label and input for circle_id end -->
 
   <%= f.submit "Create relationship", class: "btn btn-block btn-outline-secondary" %>
 <% end %>

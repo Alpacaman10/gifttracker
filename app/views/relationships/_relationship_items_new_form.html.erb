@@ -1,86 +1,48 @@
-<!-- Form item start -->
 <%= form_with(model: @item, local: true) do |f| %>
-<!-- Form item end -->
 
-  <!-- Label and input for created_by start -->
-  <!-- Input for "created_by" start -->
   <%= f.hidden_field :created_by, value: current_user.id %>
-  <!-- Input for "created_by" end -->
-  <!-- Label and input for created_by end -->
 
-  <!-- Label and input for image start -->
   <div class="form-group">
     <%= f.label :image %>
 
-    <!-- Input for image start -->
     <%= f.file_field :image, class: "form-control" %>
-    <!-- Input for image end -->
   </div>
-  <!-- Label and input for image end -->
 
-  <!-- Label and input for url start -->
   <div class="form-group">
     <%= f.label :url %>
 
-    <!-- Input for url start -->
     <%= f.text_field :url, class: "form-control" %>
-    <!-- Input for url end -->
   </div>
-  <!-- Label and input for url end -->
 
-  <!-- Label and input for description start -->
   <div class="form-group">
     <%= f.label :description %>
-    <!-- Input for description start -->
     <%= f.text_area :description, rows: "3", class: "form-control" %>
-    <!-- Input for description end -->
   </div>
-  <!-- Label and input for description end -->
 
-  <!-- Label and input for price start -->
   <div class="form-group">
     <%= f.label :price %>
 
-    <!-- Input for price start -->
     <%= f.text_field :price, class: "form-control" %>
-    <!-- Input for price end -->
   </div>
-  <!-- Label and input for price end -->
 
-  <!-- Label and input for received start -->
   <div class="form-check">
-    <!-- Input for received start -->
     <%= f.check_box :received, class: "form-check-input" %>
-    <!-- Input for received end -->
     <%= f.label :received, class: "form-check-label" %>
   </div>
-  <!-- Label and input for received end -->
 
-  <!-- Label and input for purchased_by_id start -->
   <div class="form-group">
     <%= f.label :purchased_by_id %>
 
-    <!-- Input for purchased_by_id start -->
     <%= f.collection_select :purchased_by_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for purchased_by_id end -->
   </div>
-  <!-- Label and input for purchased_by_id end -->
 
-  <!-- Label and input for circle_id start -->
-  <!-- Input for circle_id start -->
   <%= f.hidden_field :circle_id, value: @relationship.id %>
-  <!-- Input for circle_id end -->
-  <!-- Label and input for circle_id end -->
 
-  <!-- Label and input for priority start -->
   <div class="form-group">
     <%= f.label :priority %>
 
-    <!-- Input for priority start -->
     <%= f.text_field :priority, class: "form-control" %>
-    <!-- Input for priority end -->
   </div>
-  <!-- Label and input for priority end -->
 
   <%= f.submit "Create item", class: "btn btn-block btn-outline-secondary" %>
 <% end %>
