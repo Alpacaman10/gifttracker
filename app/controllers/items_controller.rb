@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
 
   def index
     @q = current_user.gifts.ransack(params[:q])
-    @items = @q.result(distinct: true).includes(:creator, :purchased_by,
+    @items = @q.result(distinct: true).includes(:creator,
                                                 :circle).page(params[:page]).per(10)
   end
 
@@ -67,6 +67,6 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:created_by, :image, :url, :description,
-                                 :price, :received, :purchased_by_id, :circle_id, :priority, :name)
+                                 :price, :received, :circle_id, :priority, :name)
   end
 end

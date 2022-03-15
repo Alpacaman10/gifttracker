@@ -114,28 +114,6 @@
     <% end %>
   </div>
   <div class="form-group">
-    <% purchased_by_class = "form-control" %>
-    <% purchased_by_was_invalid = item.errors.include?(:purchased_by) %>
-
-    <% if was_validated %>
-      <% if purchased_by_was_invalid %>
-        <% purchased_by_class << " is-invalid" %>
-      <% else %>
-        <% purchased_by_class << " is-valid" %>
-      <% end %>
-    <% end %>
-
-    <%= f.label :purchased_by_id %>
-    <%= f.collection_select :purchased_by_id, User.all, :id, :to_s, {}, class: "form-control" %>
-    <% if purchased_by_was_invalid %>
-      <% item.errors.full_messages_for(:purchased_by).each do |message| %>
-        <div class="invalid-feedback d-flex">
-          <%= message %>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-  <div class="form-group">
     <% circle_class = "form-control" %>
     <% circle_was_invalid = item.errors.include?(:circle) %>
 

@@ -8,9 +8,6 @@ class UserResource < ApplicationResource
 
   # Direct associations
 
-  has_many   :items,
-             foreign_key: :purchased_by_id
-
   has_many   :relationships
 
   has_many   :gifts,

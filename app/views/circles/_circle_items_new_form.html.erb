@@ -30,12 +30,6 @@
     <%= f.label :received, class: "form-check-label" %>
   </div>
 
-  <div class="form-group">
-    <%= f.label :purchased_by_id %>
-
-    <%= f.collection_select :purchased_by_id, User.all, :id, :to_s, {}, class: "form-control" %>
-  </div>
-
   <%= f.hidden_field :circle_id, value: @circle.id %>
 
   <div class="form-group">

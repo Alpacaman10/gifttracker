@@ -29,13 +29,6 @@
       <dt>Received</dt>
       <dd><%= item.received %></dd>
 
-      <dt>Purchased by</dt>
-      <dd>
-        <% if @item.purchased_by.present? %>
-          <%= link_to item.purchased_by, item.purchased_by %>
-        <% end %>
-      </dd>
-
       <dt>Circle</dt>
       <dd>
         <% if @item.circle.present? %>

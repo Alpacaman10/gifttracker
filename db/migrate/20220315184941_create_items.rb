@@ -7,7 +7,6 @@ class CreateItems < ActiveRecord::Migration[6.0]
       t.text :description
       t.float :price
       t.boolean :received
-      t.integer :purchased_by_id
       t.integer :circle_id
       t.integer :priority
       t.string :name
