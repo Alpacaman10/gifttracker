@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   # Direct associations
 
+  has_many   :gifts,
+             :class_name => "Item",
+             :foreign_key => "created_by",
+             :dependent => :destroy
+
   # Indirect associations
 
   # Validations

@@ -1,6 +1,10 @@
 class Item < ApplicationRecord
   # Direct associations
 
+  belongs_to :creator,
+             :class_name => "User",
+             :foreign_key => "created_by"
+
   # Indirect associations
 
   # Validations
