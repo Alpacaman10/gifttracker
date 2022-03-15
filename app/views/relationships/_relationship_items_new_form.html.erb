@@ -3,13 +3,9 @@
 <!-- Form item end -->
 
   <!-- Label and input for created_by start -->
-  <div class="form-group">
-    <%= f.label :created_by %>
-
-    <!-- Input for created_by start -->
-    <%= f.collection_select :created_by, User.all, :id, :to_s, {}, class: "form-control" %>
-    <!-- Input for created_by end -->
-  </div>
+  <!-- Input for "created_by" start -->
+  <%= f.hidden_field :created_by, value: current_user.id %>
+  <!-- Input for "created_by" end -->
   <!-- Label and input for created_by end -->
 
   <!-- Label and input for image start -->
