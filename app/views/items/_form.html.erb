@@ -171,7 +171,7 @@
 
     <%= f.label :purchased_by_id %>
     <!-- Input for purchased_by_id start -->
-    <%= f.number_field :purchased_by_id, class: purchased_by_class, placeholder: "Enter purchased by" %>
+    <%= f.collection_select :purchased_by_id, User.all, :id, :to_s, {}, class: "form-control" %>
     <!-- Input for purchased_by_id end -->
     <% if purchased_by_was_invalid %>
       <% item.errors.full_messages_for(:purchased_by).each do |message| %>
