@@ -6,6 +6,10 @@ class Circle < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :users,
+             :through => :relationships,
+             :source => :user
+
   # Validations
 
   # Scopes

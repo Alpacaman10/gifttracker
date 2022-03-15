@@ -15,6 +15,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :circles,
+             :through => :relationships,
+             :source => :circle
+
   # Validations
 
   # Scopes
