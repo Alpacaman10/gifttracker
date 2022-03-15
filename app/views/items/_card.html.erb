@@ -7,7 +7,11 @@
     <dl class="mb-1">
       <dt>Created by</dt>
       <!-- Display created_by start -->
-      <dd><%= item.created_by %></dd>
+      <dd>
+        <% if @item.creator.present? %>
+          <%= link_to item.creator, item.creator %>
+        <% end %>
+      </dd>
       <!-- Display created_by end -->
 
       <dt>Image</dt>
@@ -39,12 +43,20 @@
 
       <dt>Purchased by</dt>
       <!-- Display purchased_by_id start -->
-      <dd><%= item.purchased_by_id %></dd>
+      <dd>
+        <% if @item.purchased_by.present? %>
+          <%= link_to item.purchased_by, item.purchased_by %>
+        <% end %>
+      </dd>
       <!-- Display purchased_by_id end -->
 
       <dt>Circle</dt>
       <!-- Display circle_id start -->
-      <dd><%= item.circle_id %></dd>
+      <dd>
+        <% if @item.circle.present? %>
+          <%= link_to item.circle, item.circle %>
+        <% end %>
+      </dd>
       <!-- Display circle_id end -->
 
       <dt>Priority</dt>

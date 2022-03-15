@@ -7,12 +7,20 @@
     <dl class="mb-1">
       <dt>User</dt>
       <!-- Display user_id start -->
-      <dd><%= relationship.user_id %></dd>
+      <dd>
+        <% if @relationship.user.present? %>
+          <%= link_to relationship.user, relationship.user %>
+        <% end %>
+      </dd>
       <!-- Display user_id end -->
 
       <dt>Circle</dt>
       <!-- Display circle_id start -->
-      <dd><%= relationship.circle_id %></dd>
+      <dd>
+        <% if @relationship.circle.present? %>
+          <%= link_to relationship.circle, relationship.circle %>
+        <% end %>
+      </dd>
       <!-- Display circle_id end -->
 
     </dl>
